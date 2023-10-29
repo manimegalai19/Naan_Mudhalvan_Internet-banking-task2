@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Transaction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>FastPay</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Transactions</a></li>
+                <li><a href="#">Customer Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="button" id="login-button">Login</button>
+                <center>
+                  Don't have Account? 
+                  <a href="signup.html">Sign Up</a>
+                </center>
+            </form>
+            <p id="login-status"></p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 XYZ Bank. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Define static values for admin and user login
+        const adminUsername = "admin";
+        const adminPassword = "admin123";
+        const userUsername = "user";
+        const userPassword = "user123";
+
+        // Get form elements and login status paragraph
+        const loginForm = document.getElementById("login-form");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const loginButton = document.getElementById("login-button");
+        const loginStatus = document.getElementById("login-status");
+
+        // Event listener for login button click
+        loginButton.addEventListener("click", function() {
+            const enteredUsername = usernameInput.value;
+            const enteredPassword = passwordInput.value;
+
+            if (
+                (enteredUsername === adminUsername && enteredPassword === adminPassword) ||
+                (enteredUsername === userUsername && enteredPassword === userPassword)
+            ) {
+                loginStatus.textContent = "Login successful!";
+                // You can redirect the user to their respective dashboard here
+            } else {
+                loginStatus.textContent = "Invalid username or password. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>
